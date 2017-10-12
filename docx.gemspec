@@ -1,18 +1,19 @@
-$:.unshift File.expand_path("../lib", __FILE__)
+lib = File.expand_path("../lib", __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'docx/version'
 
-Gem::Specification.new do |s|
-  s.name        = 'docx'
-  s.version     = Docx::VERSION
-  s.summary     = 'a ruby library/gem for interacting with .docx files'
-  s.description = s.summary
-  s.authors     = ['Christopher Hunt', 'Marcus Ortiz', 'Higgins Dragon', 'Toms Mikoss', 'Sebastian Wittenkamp']
-  s.email       = ['chrahunt@gmail.com']
-  s.homepage    = 'https://github.com/chrahunt/docx'
-  s.files       = Dir["README.md", "LICENSE.md", "lib/**/*.rb"]
+Gem::Specification.new do |spec|
+  spec.name        = 'yh-docx'
+  spec.version     = Docx::VERSION
+  spec.license      = 'MIT'
+  spec.summary     = "Fork of 'docx' gem"
+  spec.description = spec.summary
+  spec.authors     = ['Christopher Hunt', 'Marcus Ortiz', 'Higgins Dragon', 'Toms Mikoss', 'Sebastian Wittenkamp']
+  spec.email       = ['chrahunt@gmail.com']
+  spec.homepage    = 'https://github.com/chrahunt/docx'
+  spec.files       = Dir["README.md", "LICENSE.md", "lib/**/*.rb"]
 
-  s.add_dependency 'nokogiri', '~> 1.5'
-  s.add_dependency 'rubyzip',  '~> 1.1.6'
-
-  s.add_development_dependency 'rspec'
+  spec.add_runtime_dependency 'nokogiri', '~> 1.8', '>= 1.8.1'
+  spec.add_runtime_dependency 'rubyzip', '~> 1.2', '>= 1.2.1'
+  spec.add_development_dependency 'rspec', '~> 0'
 end
